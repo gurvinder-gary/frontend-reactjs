@@ -1,0 +1,33 @@
+.profilePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-color: #dedede;
+  border: 5px solid #4c914c;
+  margin: 0 auto;
+
+	.profileWrapper {
+		text-align: center;
+		background: white;
+		padding: 10px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		display: flex;
+		width: 100%;
+		gap: 25px;
+
+
+		.content {
+			text-align: left;
+		}
+
+		.profileImage {
+			width: 150px;
+			height: 150px;
+			border-radius: 15%;
+			margin-bottom: 20px;
+			border: 1px solid #dedede;
+		}
+	}	
+}
+
