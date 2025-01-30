@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Login.module.scss';
 import { loginUser } from '../../services/usersService';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ const Login = () => {
     setError('');
     try {
       const response = await loginUser({ email, password });
-      login(response.token, {email: response.email, name: response.name});
+      login(response.token, { email: response.email, name: response.name });
       navigate('/profile');
     } catch (err) {
       setError('Invalid email or password');
@@ -49,6 +49,10 @@ const Login = () => {
           {error && <p className={styles.error}>{error}</p>}
           <button type="submit" className={styles.submitButton}>Login</button>
         </form>
+
+        <div className={styles.register}>
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </div>
       </div>
     </div>
   );

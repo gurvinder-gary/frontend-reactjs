@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Outlet, Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import UserProfile from './components/UserProfile/UserProfile';
 import Header from './components/Header/Header';
 // import ProductList from './components/Products/ProductList';
@@ -35,6 +36,7 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
             element={
               <PrivateRoute>

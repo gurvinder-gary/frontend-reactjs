@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './UserProfile.module.scss';
 import { getUserProfile } from '../../services/usersService';
 import withLoading from '../hoc/withLoading';
+import { getProfileImage } from '../../utils/getProfileImage';
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -25,7 +26,7 @@ const UserProfile = () => {
     <div className={styles.profilePage}>
       <div className={styles.profileWrapper}>
         <div className={styles.imageWrapper}>
-          <img src={user.profileImage || 'https://keedag.sportskeeda.com/user-pic/373414-1713615484-200.jpg'} alt="User"  className={styles.profileImage}/>
+          <img src={getProfileImage(user.profileImage)} alt="User"  className={styles.profileImage}/>
         </div>
 
         <div className={styles.content}>
