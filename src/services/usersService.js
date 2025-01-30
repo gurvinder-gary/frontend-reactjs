@@ -42,3 +42,20 @@ export const registerUser = async (registerData) => {
   }
 }
 
+
+/**
+ * Change password for the logged in user
+ * 
+ * @param {Object} data - The data required for change password (e.g., oldPassword, newPassword).
+ * @returns {Object} The response data containing the success.
+ * @throws {Error} If the request fails, an error is thrown.
+ */
+export const changeUserPassword = async (data) => {
+  try {
+    const response = await axiosInstance.post(`/users/change-password`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+

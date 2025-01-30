@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 // import Orders from './components/Orders/Orders';
 import Sidebar from './components/Sidebar/Sidebar';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import ChangePassword from './components/ChangePassword/ChangePassword';
 
 const Layout = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
           >
             <Route path="/" element={<Navigate to="/profile" />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/change-password" element={<ChangePassword />} />
             {/* <Route path="/products" element={<ProductList />} />
             <Route path="/products/add" element={<AddProduct />} />
             <Route path="/products/edit/:id" element={<EditProduct />} />
