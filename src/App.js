@@ -4,10 +4,8 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import UserProfile from './components/UserProfile/UserProfile';
 import Header from './components/Header/Header';
-// import ProductList from './components/Products/ProductList';
-// import AddProduct from './components/Products/AddProduct';
-// import EditProduct from './components/Products/EditProduct';
-// import Orders from './components/Orders/Orders';
+import ProductList from './components/Products/ProductList';
+import ProductForm from './components/Products/ProductForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ChangePassword from './components/ChangePassword/ChangePassword';
@@ -48,10 +46,9 @@ const App = () => {
             <Route path="/" element={<Navigate to="/profile" />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/change-password" element={<ChangePassword />} />
-            {/* <Route path="/products" element={<ProductList />} />
-            <Route path="/products/add" element={<AddProduct />} />
-            <Route path="/products/edit/:id" element={<EditProduct />} />
-            <Route path="/orders" element={<Orders />} /> */}
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/products/add" element={<ProductForm />} />
+            <Route path="/products/edit/:id" element={<ProductForm />} />
           </Route>
         </Routes>
       </AuthProvider>
