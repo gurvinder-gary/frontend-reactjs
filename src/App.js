@@ -9,6 +9,8 @@ import ProductForm from './components/Products/ProductForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ChangePassword from './components/ChangePassword/ChangePassword';
+import ProductCategoryList from './components/ProductCategories/ProductCategoryList';
+import ProductCategoryForm from './components/ProductCategories/ProductCategoryForm';
 
 const Layout = () => {
   return (
@@ -49,6 +51,9 @@ const App = () => {
             <Route path="/products" element={<ProductList />} />
             <Route path="/products/add" element={<ProductForm />} />
             <Route path="/products/edit/:id" element={<ProductForm />} />
+            <Route path="/product-categories" element={<ProductCategoryList />} />
+            <Route path="/product-category/add" element={<ProductCategoryForm />} />
+            <Route path="/product-category/edit/:id" element={<ProductCategoryForm />} />
           </Route>
         </Routes>
       </AuthProvider>

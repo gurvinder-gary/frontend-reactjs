@@ -1,0 +1,150 @@
+.categoryContainer {
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	h2 {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.topNav {
+		display: flex;
+		gap: 15px;
+		align-items: center;
+		margin-bottom: 20px;
+		justify-content: flex-end;
+
+		.addButton {
+			padding: 10px 15px;
+			background-color: #28a745;
+			color: white;
+			text-decoration: none;
+			border-radius: 5px;
+		}
+	}
+
+	.categoryTable {
+		width: 100%;
+		border-collapse: collapse;
+		background: #f9f9f9;
+	}
+
+	.categoryTable th,
+	.categoryTable td {
+		border: 1px solid #ddd;
+		padding: 10px;
+		text-align: left;
+	}
+
+	.categoryTable th {
+		background-color: #007bff;
+		color: white;
+	}
+
+	.actionsBtns {
+		display: flex;
+		gap: 10px;
+		font-size: 15px;
+		font-weight: normal;
+
+		.editButton,
+		.deleteButton {
+			padding: 5px 10px;
+			border: none;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.editButton {
+			background-color: #ffc107;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.deleteButton {
+			background-color: #dc3545;
+			color: #fff;
+		}
+	}
+}
+
+/* src/components/ProductCategories/ProductCategories.module.scss */
+
+.formContainer {
+	max-width: 500px;
+	margin: auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+
+	.titleSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .backButton {
+      background-color: black;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+	.error {
+		color: red;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+
+	.formGroup {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 15px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	input,
+	textarea,
+	select {
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 16px;
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 80px;
+	}
+
+	.submitButton {
+		width: 100%;
+		padding: 10px;
+		background: #28a745;
+		color: white;
+		font-size: 16px;
+		font-weight: bold;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background 0.3s;
+	}
+
+	.submitButton:hover {
+		background: #218838;
+	}
+
+	.submitButton:disabled {
+		background: #ccc;
+		cursor: not-allowed;
+	}
+}
