@@ -11,6 +11,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import ChangePassword from './components/ChangePassword/ChangePassword';
 import ProductCategoryList from './components/ProductCategories/ProductCategoryList';
 import ProductCategoryForm from './components/ProductCategories/ProductCategoryForm';
+import { CategoryProvider } from './context/CategoryContext';
 
 const Layout = () => {
   return (
@@ -35,27 +36,29 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            element={
-              <PrivateRoute>
-                <Layout />
-              </PrivateRoute>
-            }
-          >
-            <Route path="/" element={<Navigate to="/profile" />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/change-password" element={<ChangePassword />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/products/add" element={<ProductForm />} />
-            <Route path="/products/edit/:id" element={<ProductForm />} />
-            <Route path="/product-categories" element={<ProductCategoryList />} />
-            <Route path="/product-category/add" element={<ProductCategoryForm />} />
-            <Route path="/product-category/edit/:id" element={<ProductCategoryForm />} />
-          </Route>
-        </Routes>
+        <CategoryProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              element={
+                <PrivateRoute>
+                  <Layout />
+                </PrivateRoute>
+              }
+            >
+              <Route path="/" element={<Navigate to="/profile" />} />
+              <Route path="/profile" element={<UserProfile />} />
+              <Route path="/change-password" element={<ChangePassword />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/products/add" element={<ProductForm />} />
+              <Route path="/products/edit/:id" element={<ProductForm />} />
+              <Route path="/product-categories" element={<ProductCategoryList />} />
+              <Route path="/product-category/add" element={<ProductCategoryForm />} />
+              <Route path="/product-category/edit/:id" element={<ProductCategoryForm />} />
+            </Route>
+          </Routes>
+        </CategoryProvider>
       </AuthProvider>
     </Router>
   );

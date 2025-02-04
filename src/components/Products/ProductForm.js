@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Products.module.scss';
 import { createProduct, getProductById, updateProductById } from '../../services/productsService';
+import { useCategoryContext } from '../../context/CategoryContext';
 
 const ProductForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { categories } = useCategoryContext();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -63,7 +65,18 @@ const ProductForm = () => {
         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" required />
         <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" required />
         <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" required />
-        <input type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category" required />
+
+        <select name="category" value={formData.category} onChange={handleChange} required>
+          <option value="">-- Select Category --</option>
+          {categories
+            .filter(cat => cat.status === 'active') // Show only active categories
+            .map(cat => (
+              <option key={cat._id} value={cat.slug}>
+                {cat.name}
+              </option>
+            ))}
+        </select>
+        
         <input type="number" name="stock" value={formData.stock} onChange={handleChange} placeholder="Stock" required />
         <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL (optional)" />
         <button type="submit">{id ? 'Update' : 'Add'} Product</button>

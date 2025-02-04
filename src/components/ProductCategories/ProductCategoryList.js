@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCategories.module.scss';
-import { deleteProductCategoryById, getProductCategories } from '../../services/productCategoriesService';
+import { deleteProductCategoryById } from '../../services/productCategoriesService';
+import { useCategoryContext } from '../../context/CategoryContext';
 
 const ProductCategoryList = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { categories, loading, fetchCategories } = useCategoryContext();
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await getProductCategories();
-        setCategories(response);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCategories();
-  }, []);
 
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this category?')) {
       try {
         await deleteProductCategoryById(id);
-        setCategories(categories.filter(category => category._id !== id));
+        fetchCategories();
       } catch (error) {
         alert('Error deleting category');
       }
@@ -35,7 +20,6 @@ const ProductCategoryList = () => {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className={styles.categoryContainer}>
@@ -71,6 +55,10 @@ const ProductCategoryList = () => {
               </td>
             </tr>
           ))}
+
+          {categories.length === 0 &&
+            <td className={styles.noRecord} colSpan={6}>No record found</td>
+          }
         </tbody>
       </table>
     </div>

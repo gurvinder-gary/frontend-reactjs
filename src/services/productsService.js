@@ -6,10 +6,10 @@ import axiosInstance from '../interceptor/axiosInstance';
  * @param {integer} page 
  * @returns {Object} The response data containing products and total pages info
  */
-export const getProducts = async (page) => {
+export const getProducts = async (page, selectedCategory) => {
   try {
     const limit = 10;
-    const response = await axiosInstance.get(`/products?page=${page}&limit=${limit}`);
+    const response = await axiosInstance.get(`/products?page=${page}&limit=${limit}&category=${selectedCategory}`);
     return response.data;
   } catch (error) {
     throw error;

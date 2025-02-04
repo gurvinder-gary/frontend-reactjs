@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './ProductCategories.module.scss';
 import { addProductCategory, getProductCategoryById, updateProductCategoryById } from '../../services/productCategoriesService';
+import { useCategoryContext } from '../../context/CategoryContext';
 
 const ProductCategoryForm = () => {
 	const { id } = useParams();
@@ -9,6 +10,7 @@ const ProductCategoryForm = () => {
 	const [category, setCategory] = useState({ name: '', description: '', status: 'active' });
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
+	const { fetchCategories } = useCategoryContext();
 
 	useEffect(() => {
 		if (id) {
@@ -52,6 +54,7 @@ const ProductCategoryForm = () => {
 				await addProductCategory(newCategory);
 			}
 
+			fetchCategories();
 			navigate('/product-categories');
 		} catch (err) {
 			setError(err?.response?.data?.message || 'Failed to save category');

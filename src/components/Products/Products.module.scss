@@ -20,13 +20,30 @@
       text-decoration: none;
       border-radius: 5px;
     }
-  }
 
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }    
+  }
 
   .productList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+  }
+  
+  .noRecordFound {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #dedede;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 21px;
+    font-weight: bold;
   }
 
   .productCard {
@@ -128,7 +145,8 @@
   }
 
   .productForm input,
-  .productForm textarea {
+  .productForm textarea,
+  .productForm select {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
