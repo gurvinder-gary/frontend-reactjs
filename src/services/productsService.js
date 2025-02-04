@@ -17,6 +17,20 @@ export const getProducts = async (page, selectedCategory) => {
 };
 
 /**
+ * Get list of all products added with limited fields
+ * 
+ * @param null
+ * @returns {object}
+ */
+export const getAllProducts = async () => {
+  try {
+    const response = await axiosInstance.get(`/products/all-products`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+/**
  * Delete the product based on id
  * 
  * @param {string} productId 

@@ -4,7 +4,6 @@ import { getProductCategories } from '../services/productCategoriesService';
 // Create Context
 const CategoryContext = createContext();
 
-// Custom hook for easy access
 export const useCategoryContext = () => useContext(CategoryContext);
 
 // Context Provider

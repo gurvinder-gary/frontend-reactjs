@@ -12,6 +12,8 @@ import ChangePassword from './components/ChangePassword/ChangePassword';
 import ProductCategoryList from './components/ProductCategories/ProductCategoryList';
 import ProductCategoryForm from './components/ProductCategories/ProductCategoryForm';
 import { CategoryProvider } from './context/CategoryContext';
+import OrderList from './components/Orders/OrderList';
+import OrderForm from './components/Orders/OrderForm';
 
 const Layout = () => {
   return (
@@ -65,6 +67,9 @@ const App = () => {
               <Route path="/product-category/add" element={<ProductCategoryForm />} />
               <Route path="/product-category/edit/:id" element={<ProductCategoryForm />} />
             </Route>
+
+            <Route path="/orders" element={<OrderList />} />
+            <Route path="/orders/add" element={<OrderForm />} />
           </Route>
         </Routes>
         {/* </CategoryProvider> */}
