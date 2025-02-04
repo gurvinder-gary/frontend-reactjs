@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+/junit.xml
+/test-results
 
 # production
 /build
