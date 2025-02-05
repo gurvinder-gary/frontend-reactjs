@@ -9,6 +9,7 @@ const OrderList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalRecords, setTotalRecords] = useState(0);
+  const [loading, setLoading] = useState(false);
   const limit = 5;
 
   useEffect(() => {
@@ -16,6 +17,8 @@ const OrderList = () => {
   }, [currentPage]);
 
   const fetchOrders = async (page) => {
+    setLoading(true);
+
     try {
       const response = await getOrders(page, limit);
       setOrders(response.orders);
@@ -23,6 +26,8 @@ const OrderList = () => {
       setTotalRecords(response.totalRecords);
     } catch (error) {
       console.error('Error fetching orders:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +54,7 @@ const OrderList = () => {
 
       <div className={styles.topNav}>
         <h3>Total Orders: {totalRecords}</h3>
-        <button className={styles.addButton} onClick={() => navigate('/orders/add')}>Add Order</button>
+        <button className={styles.addButton} onClick={() => navigate('/order/add')}>Add Order</button>
       </div>
 
       <ul className={styles.orderList}>
@@ -61,7 +66,7 @@ const OrderList = () => {
             <span>Total Items: {order.orderItems.length} </span>
             <span>Address: {order.shippingAddress.city}, {order.shippingAddress.country}</span>
             <div className={styles.actionItems}>
-              <button className={`${styles.buttons} ${styles.editBtn}`}>Items</button>
+              <button className={`${styles.buttons} ${styles.editBtn}`} onClick={() => navigate(`/order/detail/${order._id}`)}>Items</button>
               <button className={`${styles.buttons} ${styles.deleteButton}`} onClick={() => handleDelete(order._id)}>Delete</button>
             </div>
 
@@ -69,7 +74,7 @@ const OrderList = () => {
         ))}
       </ul>
 
-      {orders.length === 0 &&
+      {!loading && orders.length === 0 &&
         <div className={styles.noRecordFound}>Oops: No record found</div>
       }
 

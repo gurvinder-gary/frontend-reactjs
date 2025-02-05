@@ -45,3 +45,18 @@ export const deleteOrderById = async (orderId) => {
     throw error;
   }
 };
+
+/**
+ * Get the order details based on order id
+ * 
+ * @param {string} orderId 
+ * @returns {object}
+ */
+export const getOrderDetailById = async (orderId) => {
+  try {
+    const response = await axiosInstance.get(`/orders/${orderId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}

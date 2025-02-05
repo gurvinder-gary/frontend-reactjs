@@ -14,6 +14,7 @@ import ProductCategoryForm from './components/ProductCategories/ProductCategoryF
 import { CategoryProvider } from './context/CategoryContext';
 import OrderList from './components/Orders/OrderList';
 import OrderForm from './components/Orders/OrderForm';
+import OrderDetail from './components/Orders/OrderDetail';
 
 const Layout = () => {
   return (
@@ -69,7 +70,8 @@ const App = () => {
             </Route>
 
             <Route path="/orders" element={<OrderList />} />
-            <Route path="/orders/add" element={<OrderForm />} />
+            <Route path="/order/add" element={<OrderForm />} />
+            <Route path="/order/detail/:id" element={<OrderDetail />} />
           </Route>
         </Routes>
         {/* </CategoryProvider> */}
