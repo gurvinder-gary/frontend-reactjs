@@ -33,6 +33,7 @@ const UserProfile = () => {
           <h1>{user.name}</h1>
           <p>Email: {user.email}</p>
           <p>Admin: {user.isAdmin ? 'Yes' : 'No'}</p>
+          <p>Total Orders: {user.totalOrders || 0}</p>
         </div>
       </div>     
     </div>
