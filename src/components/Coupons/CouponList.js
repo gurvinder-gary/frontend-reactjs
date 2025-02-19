@@ -77,7 +77,7 @@ const CouponList = () => {
         </thead>
         <tbody>
           {coupons.map((coupon, index) => (
-            <tr key={coupon._id}>
+            <tr key={coupon.id}>
               <td>{index + 1}</td>
               <td>{coupon.code}</td>
               <td>{coupon.discount_type}</td>
@@ -86,7 +86,7 @@ const CouponList = () => {
               <td>{coupon.max_usage}</td>
               <td>{coupon.usage_count}</td>
               <td className={styles.actionsBtns}>
-                <Link to={`/coupon/edit/${coupon._id}`} className={styles.editButton}>Edit</Link>
+                <Link to={`/coupon/edit/${coupon.code}`} className={styles.editButton}>Edit</Link>
                 <button
                   className={styles.deleteButton}
                   onClick={() => handleActivateDeactivate(coupon.id, coupon.is_active ? "deactivate" : "activate")}

@@ -1,0 +1,66 @@
+.couponFormContainer {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .titleSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .backButton {
+      background-color: black;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .radioGroup {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+}

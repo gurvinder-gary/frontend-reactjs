@@ -16,6 +16,7 @@ import OrderList from './components/Orders/OrderList';
 import OrderForm from './components/Orders/OrderForm';
 import OrderDetail from './components/Orders/OrderDetail';
 import CouponList from './components/Coupons/CouponList';
+import CouponForm from './components/Coupons/CouponForm';
 
 const Layout = () => {
   return (
@@ -75,6 +76,8 @@ const App = () => {
             <Route path="/order/detail/:id" element={<OrderDetail />} />
 
             <Route path="/coupons" element={<CouponList />} />
+            <Route path="/coupon/add" element={<CouponForm />} />
+            <Route path="/coupon/edit/:code" element={<CouponForm />} />
           </Route>
         </Routes>
         {/* </CategoryProvider> */}

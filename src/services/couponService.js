@@ -31,3 +31,49 @@ export const activateDeactivateCoupon = async (couponId, type) => {
     throw error;
   }
 };
+
+/**
+ * Save the new coupon in database
+ * 
+ * @param {object} data
+ * @returns {object}
+ */
+export const saveNewCoupon = async (data) => {
+  try {
+    const response = await axiosInstance.post(`/coupons`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
+ * Get the coupon details by code
+ * 
+ * @param {string} code 
+ * @returns {object}
+ */
+export const getCouponByCode = async (code) => {
+  try {
+    const response = await axiosInstance.get(`/coupons/${code}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  } 
+}
+
+/**
+ * Update the coupon based on coupon id
+ * 
+ * @param {string} couponId 
+ * @param {object} data 
+ * @returns {object}
+ */
+export const updateCouponByID = async (couponId, data) => {
+  try {
+    const response = await axiosInstance.put(`/coupons/${couponId}`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
