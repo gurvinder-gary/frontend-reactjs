@@ -1,11 +1,19 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL
-});
+const axiosInstance = axios.create();
+
+
+const API_BASE_URL_NODE = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL_GO = process.env.REACT_APP_API_BASE_URL_GO || "http://localhost:7000/api";
 
 // Request Interceptor to include the token in headers (if needed)
 axiosInstance.interceptors.request.use((config) => {
+  if (config.url.startsWith('/coupons')) {
+    config.baseURL = API_BASE_URL_GO; // Requests related to coupons go to Go backend
+  } else {
+    config.baseURL = API_BASE_URL_NODE; // All other requests go to Node.js backend
+  }
+
   const token = localStorage.getItem('token'); // or cookies/session storage
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;

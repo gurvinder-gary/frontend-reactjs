@@ -15,6 +15,7 @@ import { CategoryProvider } from './context/CategoryContext';
 import OrderList from './components/Orders/OrderList';
 import OrderForm from './components/Orders/OrderForm';
 import OrderDetail from './components/Orders/OrderDetail';
+import CouponList from './components/Coupons/CouponList';
 
 const Layout = () => {
   return (
@@ -72,6 +73,8 @@ const App = () => {
             <Route path="/orders" element={<OrderList />} />
             <Route path="/order/add" element={<OrderForm />} />
             <Route path="/order/detail/:id" element={<OrderDetail />} />
+
+            <Route path="/coupons" element={<CouponList />} />
           </Route>
         </Routes>
         {/* </CategoryProvider> */}

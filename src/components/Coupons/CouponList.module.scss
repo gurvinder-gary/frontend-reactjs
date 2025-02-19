@@ -1,0 +1,125 @@
+.couponContainer {
+  padding: 1.5rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  .topNav {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .addButton {
+    background-color: #22c55e;
+    color: white;
+    padding: 8px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #16a34a;
+    }
+  }
+
+  .couponTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .couponTable th,
+  .couponTable td {
+    padding: 12px;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+  }
+
+  .couponTable th {
+    background-color: #f4f4f5;
+    font-weight: 600;
+  }
+
+  .actionsBtns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .editButton {
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #2563eb;
+    }
+  }
+
+  .deleteButton {
+    background-color: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+
+    &:hover {
+      background-color: #dc2626;
+    }
+  }
+
+  .noRecord {
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+    color: #777;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

@@ -12,6 +12,7 @@ const Sidebar = () => {
         <NavLink to="/product-categories" className={({ isActive }) => isActive ? styles.active : ''}>Product Categories</NavLink>
         <NavLink to="/orders" className={({ isActive }) => isActive ? styles.active : ''}>Orders</NavLink>
         <NavLink to="/change-password" className={({ isActive }) => isActive ? styles.active : ''}>Change Password</NavLink>
+        <NavLink to="/coupons" className={({ isActive }) => isActive ? styles.active : ''}>Coupons</NavLink>
       </nav>
     </div>
   );
