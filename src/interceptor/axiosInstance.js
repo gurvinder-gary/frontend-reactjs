@@ -4,7 +4,7 @@ const axiosInstance = axios.create();
 
 
 const API_BASE_URL_NODE = process.env.REACT_APP_API_BASE_URL;
-const API_BASE_URL_GO = process.env.REACT_APP_API_BASE_URL_GO || "http://localhost:7000/api";
+const API_BASE_URL_GO = process.env.REACT_APP_API_BASE_URL_GO;
 
 // Request Interceptor to include the token in headers (if needed)
 axiosInstance.interceptors.request.use((config) => {
