@@ -5,11 +5,14 @@ const axiosInstance = axios.create();
 
 const API_BASE_URL_NODE = process.env.REACT_APP_API_BASE_URL;
 const API_BASE_URL_GO = process.env.REACT_APP_API_BASE_URL_GO;
+const API_BASE_URL_PYTHON = process.env.REACT_APP_API_BASE_URL_PYTHON;
 
 // Request Interceptor to include the token in headers (if needed)
 axiosInstance.interceptors.request.use((config) => {
   if (config.url.startsWith('/coupons')) {
     config.baseURL = API_BASE_URL_GO; // Requests related to coupons go to Go backend
+  } else if (config.url.startsWith('/giftcards')) {
+    config.baseURL = API_BASE_URL_PYTHON; // Requests related to gift cards go to Python backend
   } else {
     config.baseURL = API_BASE_URL_NODE; // All other requests go to Node.js backend
   }

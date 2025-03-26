@@ -17,6 +17,8 @@ import OrderForm from './components/Orders/OrderForm';
 import OrderDetail from './components/Orders/OrderDetail';
 import CouponList from './components/Coupons/CouponList';
 import CouponForm from './components/Coupons/CouponForm';
+import GiftCardList from './components/Giftcard/GiftcardList';
+import GiftCardForm from './components/Giftcard/GiftCardForm';
 
 const Layout = () => {
   return (
@@ -78,6 +80,10 @@ const App = () => {
             <Route path="/coupons" element={<CouponList />} />
             <Route path="/coupon/add" element={<CouponForm />} />
             <Route path="/coupon/edit/:code" element={<CouponForm />} />
+
+            <Route path="/gift-cards" element={<GiftCardList />} />
+            <Route path="/gift-cards/add" element={<GiftCardForm />} />
+            <Route path="/gift-cards/edit/:code" element={<GiftCardForm />} />
           </Route>
         </Routes>
         {/* </CategoryProvider> */}
